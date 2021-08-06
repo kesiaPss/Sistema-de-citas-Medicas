@@ -126,6 +126,7 @@
       <DependentUpon>ReporteDoctores.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="FormBuscarCitaProgramada.resx">
       <DependentUpon>FormBuscarCitaProgramada.cs</DependentUpon>
     </EmbeddedResource>

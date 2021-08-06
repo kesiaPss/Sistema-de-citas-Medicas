@@ -9,7 +9,7 @@ using BL.CitasMedicas;
 
 namespace BL.CitasMedicas
 {
-    public  class Doctor
+    public class Doctor
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -36,6 +36,17 @@ namespace BL.CitasMedicas
         {
             _contexto.Doctor.Load();
             ListaDoctores = _contexto.Doctor.Local.ToBindingList();
+            return ListaDoctores;
+        }
+
+        public BindingList<Doctor> ObtenerDoctores(string buscar)
+        {
+            var query = _contexto.Doctor.Where(doctor => doctor
+            .Nombre.ToLower().Contains(buscar.ToLower()))
+            .OrderBy(doctor => doctor.Nombre)
+            .ToList();
+            
+            ListaDoctores = new BindingList<Doctor>(query);
             return ListaDoctores;
         }
 
